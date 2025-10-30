@@ -1,12 +1,13 @@
 console.log("Script loaded successfully.");
-import { test() } from './addTaskForm.js';
+import { test } from './addTaskForm.js';
 
-addtaskButton = document.getElementById("addTask");
-displaytaskButton = document.getElementById("displayTask");
-taskContainer = document.getElementById("taskContainer");
+const addtaskButton = document.getElementById("addTask");
+const displaytaskButton = document.getElementById("displayTask");
+const taskContainer = document.getElementById("taskContainer");
+
 
 addtaskButton.addEventListener("click", function() {
-    test;
+    test();
 });
 
 displaytaskButton.addEventListener("click", function() {
