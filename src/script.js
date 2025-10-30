@@ -7,6 +7,7 @@ const taskContainer = document.getElementById("taskContainer");
 
 
 addtaskButton.addEventListener("click", function() {
+    taskContainer.innerHTML = ""; // Clear previous content
     test();
 });
 
@@ -14,3 +15,5 @@ displaytaskButton.addEventListener("click", function() {
     alert("Displaying all tasks!");
     // Here you can add logic to display tasks from a list or database
 });
+
+
