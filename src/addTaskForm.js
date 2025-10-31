@@ -22,12 +22,33 @@ export function test(){
 
     const newButton = document.createElement('button')
     newButton.setAttribute('type', 'submit')
+    newButton.setAttribute('id', 'submitButton')
     newButton.textContent = 'Add Task'
 
     divContainer.append(newInput,timeInput, newButton )
 
 
     divContainer.appendChild(newForm)
-    }
+
+    const submitButton = document.getElementById('submitButton')
+    submitButton.addEventListener('click', function(event){
+        event.preventDefault()
+        const taskValue = document.getElementById('taskInput').value
+        const timeValue = document.getElementById('timeInput').value
+
+        if(taskValue === '' || timeValue === ''){
+            alert('Please enter both task and time.')
+            return
+        }
+
+        localStorage.setItem('task', taskValue)
+        localStorage.setItem('time', timeValue)
+        alert('Task added successfully!')
+
+        // Clear the input fields after submission
+        document.getElementById('taskInput').value = ''
+        document.getElementById('timeInput').value = ''
+    })
+}
 
 

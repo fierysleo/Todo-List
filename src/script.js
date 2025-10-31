@@ -1,5 +1,6 @@
 console.log("Script loaded successfully.");
 import { test } from './addTaskForm.js';
+import { displayTasks } from './displayTaskForm.js';
 
 const addtaskButton = document.getElementById("addTask");
 const displaytaskButton = document.getElementById("displayTask");
@@ -12,7 +13,8 @@ addtaskButton.addEventListener("click", function() {
 });
 
 displaytaskButton.addEventListener("click", function() {
-    alert("Displaying all tasks!");
+    taskContainer.innerHTML = ""; // Clear previous content
+    displayTasks();
     // Here you can add logic to display tasks from a list or database
 });
 
