@@ -1,21 +1,29 @@
 export function displayTasks(){
+    console.log("Displaying tasks...");
+
     const mainContainer = document.querySelector('#taskContainer')
     
     const taskDisplay = document.createElement('div')
     taskDisplay.setAttribute('id', 'taskDisplayContainer')
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    const storedTask = localStorage.getItem('task')
-    const storedTime = localStorage.getItem('time')
+    storedTasks.forEach((task, index) => {
+        const taskItem = document.createElement('div')
+        taskItem.setAttribute('class', 'taskItem')
 
-    if(storedTask && storedTime){
-        const taskItem = document.createElement('p')
-        taskItem.textContent = `${storedTask} at ${storedTime}`
-        taskDisplay.append(taskItem)
-    } else {
-        const noTaskItem = document.createElement('p')
-        noTaskItem.textContent = 'No tasks available.'
-        taskDisplay.appendChild(noTaskItem)
-    }
+        const taskName = document.createElement('span')
+        taskName.textContent = `Task: ${task.taskName} `
+
+        const taskTime = document.createElement('span')
+        taskTime.textContent = `Time: ${task.taskTime} `
+
+        taskItem.appendChild(taskName)
+        taskItem.appendChild(taskTime)
+
+        taskDisplay.appendChild(taskItem)
+    });
+
+
 
     mainContainer.appendChild(taskDisplay)
 }

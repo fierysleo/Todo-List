@@ -50,5 +50,38 @@ body{
     font-size: 20px;
 }
 
+.taskContainer #formContainer input{
+    font-size: 30px;
+}
+
+.taskContainer #formContainer button{
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px;
+    width: 20%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.taskContainer #taskDisplayContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: 20%;
+
+}
+
+.taskContainer #taskDisplayContainer div{
+    border: 2px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
 
 

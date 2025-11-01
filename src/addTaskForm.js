@@ -1,4 +1,11 @@
 export function test(){
+    const tasks = []
+
+    function Task(taskName, taskTime) {
+        this.taskName = taskName;
+        this.taskTime = taskTime;
+    }
+
     const mainContainder = document.querySelector('#taskContainer')
 
     const divContainer = document.createElement('div')
@@ -30,22 +37,19 @@ export function test(){
 
     divContainer.appendChild(newForm)
 
-    const submitButton = document.getElementById('submitButton')
-    submitButton.addEventListener('click', function(event){
-        event.preventDefault()
-        const taskValue = document.getElementById('taskInput').value
-        const timeValue = document.getElementById('timeInput').value
+    
+    newButton.addEventListener('click', function(event){
+        event.preventDefault();
+        const taskName = document.getElementById('taskInput').value;
+        const taskTime = document.getElementById('timeInput').value;
 
-        if(taskValue === '' || timeValue === ''){
-            alert('Please enter both task and time.')
-            return
-        }
+        const newTask = new Task (taskName,taskTime);
 
-        localStorage.setItem('task', taskValue)
-        localStorage.setItem('time', timeValue)
-        alert('Task added successfully!')
-
-        // Clear the input fields after submission
+        tasks.push(newTask);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        
+        console.log("Tasks array:", tasks);
+    
         document.getElementById('taskInput').value = ''
         document.getElementById('timeInput').value = ''
     })
